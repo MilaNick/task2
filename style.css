@@ -1,0 +1,243 @@
+@import "animate.css";
+@import "pyro.css";
+
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+}
+
+button:focus {
+    border: 0;
+    outline: 0;
+}
+
+/*-------------------------------------*/
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 120rem;
+    width: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    font-size: 1.6rem;
+    /*border: 1px solid red;*/
+}
+
+.suggestion {
+    color: #02323b;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: animated-text 2.3s steps(30, end) 1s 1 normal both;
+}
+
+/*-----------Button-----------*/
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 15rem;
+    height: 4.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    background: rgb(7, 200, 225, 0.5);
+    opacity: 0;
+    transform: translateY(-30rem);
+    transition: opacity 0.5s, transform 0.5s, background 0.3s;
+    font-size: 1.6rem;
+}
+
+.btn--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn span {
+    transition: all 0.3s;
+    transform: scale(1, 1);
+}
+
+.btn::before, .btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn:hover::after {
+    animation-name: rotatecw;
+    animation-duration: 2s;
+}
+
+.btn:hover::before {
+    animation-name: rotateccw;
+    animation-duration: 3s;
+}
+
+.btn:hover::after, .btn:hover::before {
+    left: 31%;
+    width: 34%;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+/*-----------main-----------*/
+.main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30rem;
+    background: rgb(170, 237, 246, 0.2);
+}
+
+.bg {
+    position: absolute;
+    width: auto;
+    height: 40%;
+    left: 7%;
+    top: 45%;
+    transform: translateX(-30rem);
+    transition: transform 0.5s;
+}
+
+.bg--visible {
+    transform: translateY(0);
+}
+
+.play {
+    position: relative;
+    width: 100%;
+    height: 30rem;
+}
+
+.result {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    font-size: 3rem;
+    color: #0b487a;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+}
+
+#dino {
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    left: 3%;
+    bottom: 0.5rem;
+}
+
+#dino .dino-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("assets/images/dino_01.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    animation: walking 0.2s infinite linear;
+}
+
+#dino.jump .dino-image {
+    animation-play-state: paused;
+}
+
+.jump {
+    animation: jump 1.4s linear;
+}
+
+#cactus {
+    position: absolute;
+    width: 4rem;
+    height: 8rem;
+    left: 70%;
+    bottom: 0.5rem;
+    background-image: url("assets/images/cactus.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    animation: cactusMove 3s infinite linear;
+}
+
+.paused {
+    animation-play-state: paused !important;
+}
+
+#babysitter {
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    top: 1rem;
+    left: 78%;
+    background-image: url("assets/images/babysitter.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    animation: babysitter 12s infinite linear, babysitter1 2s infinite linear both;
+}
+
+.ground {
+    position: absolute;
+    width: 100%;
+    height: 0.5rem;
+    bottom: 0;
+    border: none;
+    color: #062827;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="3px" height="3px" viewBox="0 0 3 3" fill="062827"><polygon points="0,0.5 0,1.5 1.5,3 2.5,3"></polygon><polygon points="2.5,0 1.5,0 3,1.5 3,0.5"></polygon></svg>');
+    background-size: .3rem .3rem;
+    background-position: 50%;
+}
+
+/*----------------------------------*/
+
+.instruction {
+    font-size: 1.2rem;
+    font-weight: normal;
+    line-height: 2rem;
+    color: #908d8d;
+}
+
+.title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 3rem;
+}
+
+.list {
+    padding: 0 3rem;
+}

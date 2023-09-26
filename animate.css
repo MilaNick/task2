@@ -1,0 +1,80 @@
+/*-----------suggestion animation-----------*/
+
+@keyframes animated-text {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/*-----------game animation-----------*/
+@keyframes cactusMove {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -1%;
+    }
+}
+
+@keyframes babysitter {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -1%;
+    }
+}
+
+@keyframes babysitter1 {
+    0% {
+        top: 4rem;
+    }
+    50% {
+        top: 2.8rem;
+    }
+    100% {
+        top: 4rem;
+    }
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0.5rem;
+    }
+    25% {
+        bottom: 15rem;
+    }
+    35% {
+        bottom: 18rem;
+    }
+    100% {
+        bottom: 0.5rem;
+    }
+}
+
+@keyframes walking {
+    0% {
+        background-image: url("assets/images/dino_01.png");
+    }
+    33% {
+        background-image: url("assets/images/dino_02.png");
+    }
+    66% {
+        background-image: url("assets/images/dino_03.png");
+    }
+}
+
+/*-----------button animation-----------*/
+
+@keyframes rotatecw {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes rotateccw {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(-360deg);}
+}
