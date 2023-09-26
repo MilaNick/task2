@@ -12,10 +12,10 @@ suggestion.addEventListener('animationend', () => {
         startButton.focus();
         startButton.addEventListener('transitionend', () => {
             bg.classList.add('bg--visible');
-        }, false);
+        }, { once: true });
     }, 0);
 
-}, false)
+}, { once: true })
 
 function createElement(tag, className, innerStr = null, src = null) {
     const element = document.createElement(tag);
@@ -50,7 +50,7 @@ function play() {
             dino.classList.add('jump');
             dino.addEventListener('animationend', () => {
                 dino.classList.remove('jump')
-            }, false);
+            }, { once: true });
         }
     }
 
